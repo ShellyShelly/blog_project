@@ -1,0 +1,12 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+    {% for article in articles %}
+        <h2>{{ article }}</h2>
+        <p>{{ article.time }}</p>
+        {{ article.summary|safe }}
+        <a class="btn btn-primary" type="buttom" href="{% url 'article' article.slug  %}">Детальніше</a>
+    {% endfor %}
+
+{% endblock %}

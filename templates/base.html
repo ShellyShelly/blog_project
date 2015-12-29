@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voitovych's blog</title>
+    <link href="http://yastatic.net/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="http://yandex.st/highlightjs/8.2/styles/idea.min.css" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;&nbsp;Home</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+</div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-8">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module">
+                <h4>Нові статті</h4>
+                <ol class="list-unstyled">
+
+                    {% for article in articles %}
+                        <li><a href="{% url 'article' article.slug %}">{{ article.title }}</a></li><br>
+                    {% endfor %}
+
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="http://yastatic.net/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://yastatic.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+<script src='http://yastatic.net/highlightjs/8.2/highlight.min.js'></script>
+<script type='text/javascript'>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
